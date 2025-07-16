@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  deepseek-api:
+    build: .
+    ports:
+      - "3068:3068"
+    environment:
+      - NODE_ENV=production
+      - PORT=3068
+      # Descomentar y configurar para production:
+      # - DEEPSEEK_API_KEY=tu_api_key_aqui
+      # - DEEPSEEK_API_URL=https://api.deepseek.com/v1/chat/completions
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3068/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 

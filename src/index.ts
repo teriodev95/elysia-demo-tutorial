@@ -130,9 +130,9 @@ const app = new Elysia()
       },
     }
   )
-  .listen(3068);
+  .listen(process.env.PORT || 3068);
 
 console.log(
   `🦊 Elysia está ejecutándose en ${app.server?.hostname}:${app.server?.port}`
 );
-console.log(`📚 Documentación Swagger disponible en: http://localhost:3068/swagger`);
+console.log(`📚 Documentación Swagger disponible en: http://${app.server?.hostname}:${app.server?.port}/swagger`);

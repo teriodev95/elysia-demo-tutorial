@@ -39,7 +39,7 @@ const app = new Elysia()
       documentation: {
         info: {
           title: "DeepSeek API Demo",
-          version: "1.0.0",
+          version: "1.0.1",
           description: "API simple para interactuar con DeepSeek",
         },
         tags: [
